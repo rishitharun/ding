@@ -1,0 +1,38 @@
+Sample Script #4.2 - In-built functions
+
+ * In this script, we will use some of the in-built functions
+ * We will be trying out interface(), container(), send(), receive()
+
+.decl:
+  packet test_packet
+
+.func:
+  !!! Block in which user defined functions are written
+  !!! User Defined Function feature is not yet developed/implemented
+  !!! Any Code inside this block will be ignored by the interpreter
+
+.flow:
+
+  interface("lo")
+
+  ! interface() function is used to specify the interface on which we will be sending our packets through
+  ! It is mandatory to set interface before sending any packets
+
+  test_packet = container("ETHER")
+
+  ! container() function will create an empty packet structure, for the packet specified in the argument
+  ! The empty packet structure can be used to build the packet with the values that we desire
+
+  test_packet.DEST_MAC = xcafebabef00d
+  test_packet.SRC_MAC = xcafebabef00d
+  test_packet.PAYLOAD = "Hello World !"
+
+  send(test_packet)
+
+  ! send() function sends the packets, specified as the arguments
+
+  print(receive())
+
+  ! receive() function will receive packets
+  ! An optional and interesting argument can be passed to receive function
+  ! The argument will be a condition string, and will be discussed later

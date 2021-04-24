@@ -1,0 +1,71 @@
+Sample Script to send an ICMP PACKET
+
+ * You can check the ICMP Packet in Wireshark
+
+.decl:
+  packet IP4, ETH, ICMP           ! ICMP, IP4 and Ether packets are declared
+
+.func:
+  ! Block in which user defined functions are written
+  ! User Defined Function feature is not yet developed/implemented
+  ! Any Code inside this block will be ignored by the interpreter
+
+.flow:
+  ETH = container("ETHER")
+  IP4 = container("IP4")
+  ICMP = container("ICMP")
+
+  ! Empty Containers for the packets are created
+  ! The packet structures have been defined
+
+  ICMP.TYPE = 13:1B
+  ICMP.CODE = 0:1B
+  ICMP.CHECKSUM = x5431
+  ICMP.DATA = 0:1:0:2
+
+  ! ICMP Packet has been defined
+
+  IP4.VERSION = 4:4b
+  IP4.HEADER_LEN = 5:4b
+  IP4.TYPE_OF_SERVICE =12:1B
+  IP4.TOTAL_LEN =31:2B
+  IP4.IDENTIFICATION=300:2B
+
+  IP4.FLAGS = 0:3b
+  IP4.FRAG_OFFSET = 0:13b
+
+  IP4.TTL= 200:1B
+  IP4.PROTOCOL = 1:1B
+  IP4.CHECKSUM = xfdb6
+  IP4.SRC_IP = 255.254.253.252
+  IP4.DEST_IP = 251.250.249.248
+
+  ! IP4 Packet has been defined
+
+  ETH.DEST_MAC = ff~dd~ee~cc~bb~aa
+  ETH.SRC_MAC = 11~22~33~44~55~66
+  ETH.TYPE = 2048:2B
+  !ETH.CRC = x61526d4c
+
+  ! Ether Packet has been defined
+
+  !!! THE DEFINITIONS OF PACKETS ARE MADE USING RAW VALUES
+  !!! DEFINITION CAN ALSO BE DONE USING VARIABLES
+  !!! FIRST DEFINE A VARIABLE AND ASSIGN A VALUE
+  !!! THEN ASSIGN THE VARIABLE TO THE MEMBER OF A PACKET
+
+  !ICMP.PAYLOAD = x010203040506070809101112
+  !IP4.PAYLOAD = ICMP
+  ETH.PAYLOAD = IP4
+
+  ! ICMP Packet is made as the IP4 Packet's payload
+  ! IP4 Packet is made as the Ether Packet's payload
+
+  interface("lo")
+ 
+  ! Loopback interface is selected
+  print(ETH)
+  send(ETH)   ! Sending the Packet
+
+  print("ICMP Packet Sent Successfully")
+
