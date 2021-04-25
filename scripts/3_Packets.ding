@@ -1,0 +1,45 @@
+
+Sample Script #3 - Packets
+
+ * In this script, we will declare a packet variable
+ * We will assign values to the members of the packet
+
+.decl:
+  packet my_packet       ! A packet is declared
+
+  mac dest_mac, src_mac     ! mac variables for members
+  number ether_type         ! number variable for member
+  string str_payload        ! string variable for payload
+
+.func:
+  !!! Block in which user defined functions are written
+  !!! User Defined Function feature is not yet developed/implemented
+  !!! Any Code inside this block will be ignored by the interpreter
+
+.flow:
+  my_packet = container("ETHER")
+
+  ! Empty Ether container for the packet is created
+  ! The packet structure has been defined to be Ether
+  
+  ! To find out the name of the packets as defined in ding, use pacman.py
+
+  dest_mac = ff~dd~ee~cc~bb~aa
+  src_mac = 11~22~33~44~55~66
+  ether_type = 2048:2B
+  str_payload = "Hello World !"
+
+  ! variables for members are defined with respective values
+
+  my_packet.DEST_MAC = dest_mac
+  my_packet.SRC_MAC = src_mac
+  my_packet.TYPE = ether_type
+
+  my_packet.PAYLOAD = str_payload
+
+  ! Ether Packet has been defined
+
+  ! To find out the name of the members as defined in ding, use pacman.py
+
+  ! All member variables have been assigned values
+

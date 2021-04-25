@@ -1,0 +1,33 @@
+Sample Script #6 - Loop
+
+ * In this script, we will take a look at the looping control structure
+ * Condition to loop must be of number type
+ * loop must be terminated by an endloop tag
+ * Indentation is just for readability, and not required
+
+
+.decl:
+  number num1, num2
+
+.func:
+  !!! Block in which user defined functions are written
+  !!! User Defined Function feature is not yet developed/implemented
+  !!! Any Code inside this block will be ignored by the interpreter
+
+.flow:
+
+  num1 = 0:1B
+
+  loop(num1 < 5:1B)
+    num2 = 0:1B
+
+    loop(num2 < 5:1B)
+      print("Innerloop", num2)
+      num2 = num2 + 1:1B
+    endloop
+
+    print("Outerloop",num1)
+    print()
+    num1 = num1 + 1:1B
+  endloop
+

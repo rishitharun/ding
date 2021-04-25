@@ -1,0 +1,44 @@
+Sample Script #4.1 - In-built functions
+
+ * In this script, we will use some of the in-built functions
+ * We will be trying out print(), type(), cat()
+
+.decl: 
+
+.func:
+  !!! Block in which user defined functions are written
+  !!! User Defined Function feature is not yet developed/implemented
+  !!! Any Code inside this block will be ignored by the interpreter
+
+.flow:
+
+  print("String")
+  print(1.2.3.4)
+  print(ca~fe~ba~be~f0~0d)
+  print(32:1B)
+  print(13:4b)
+  print(xcafebabef00d)
+  print(0:1:2:3:4:5:6:7:8:9:10:11:12:13:14:15)
+  print()
+
+  ! print() function does what it means
+  ! print() without any arguments will print an empty line
+  ! To explicitly specify an new line, new line feed escape sequence can be used
+
+  print(type("String"))
+  print(type(1.2.3.4))
+  print(type(ca~fe~ba~be~f0~0d))
+  print(type(32:1B))
+  print(type(13:4b))
+  print(type(xcafebabef00d))
+  print(type(0:1:2:3:4:5:6:7:8:9:10:11:12:13:14:15))
+
+  ! type() function returns the datatype of the variable
+
+  print(cat("Hello ", "World"))
+  print(cat(127.0.0.1, ca~fe~ba~be~f0~0d, 15:3B, 5:4b, 100:200:255, xfeed))
+
+  ! cat() function will concatenate the arguments that are passed
+  ! If all arguments are of string datatype, then the return type will be string datatype
+  ! If any one of the argument is not of string datatype, then the return type will be stream datatype
+

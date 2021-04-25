@@ -1,0 +1,34 @@
+Sample Script #7 - Command Line Arguments
+
+ * In this script, we will take a look at how to pass command line arguments
+ * argc is an inbuilt variable denoting the command line argument count
+ * The command line arguments are named as arg suffixed with the index
+ * NOTE: Command line argument index starts from 1, not 0
+ * Ex: If you pass 2 arguments, then the variable names will be arg1 and arg2
+
+NOTE: Pass 2 arguments while running this script
+Ex: ding /scripts/7_Command_Line_Args.ding 1.2.3.4 "Hello World"
+
+.decl:
+  ! No variables required, so leave it empty
+
+.func:
+  !!! Block in which user defined functions are written
+  !!! User Defined Function feature is not yet developed/implemented
+  !!! Any Code inside this block will be ignored by the interpreter
+
+.flow:
+  print("Total Command Line Args passed: ",argc)
+  print()
+
+  print("Arg 1 is : ", arg1)
+  print("Arg 2 is : ", arg2)
+  print()
+
+  print("Type of arg 1 is : ", type(arg1))
+  print("Type of arg 2 is : ", type(arg2))
+  print()
+
+  print("Type casting arg 1: ", arg1.ip4())
+  print("Arg1 type (casted): ", type(arg1.ip4()))
+

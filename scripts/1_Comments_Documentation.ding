@@ -1,0 +1,46 @@
+Sample Script #1 - Comments and Documentation
+
+ * In this script, we will look at ding program structure
+ * We will not do any ding programming
+ * We will look how to program
+
+ding programming has 3 components
+
+   1. The ".decl:" block:
+   ----------------------
+       All Variable Declarations
+
+   2. The ".func:" block:
+   ----------------------
+       All User Defined Function Definitions
+
+   3. The ".flow:" block:
+   ----------------------
+       Program Execution Entry Point
+
+Single Line Comments are given after '!'
+Multi Line Comments are not supported
+
+However, any text that are given above the first block, will not be processed.
+This can be considered as multiline comments, but technically it is not.
+This is only for documentation purpose.
+Now these lines are the perfect example.
+
+Let us look at the structure of programming
+-------------------------------------------
+
+.decl: 
+  !!! All user defined variables are declared under this block
+  !!! No variable definition is allowed in this block
+  !!! If no variable is required, you can leave this block empty
+
+.func:
+  !!! Block in which user defined functions are written
+  !!! User Defined Function feature is not yet developed/implemented
+  !!! Any Code inside this block will be ignored by the interpreter
+
+.flow:
+  !!! This is the entry point of ding program execution
+  !!! Variable definitions, function calls, membership assignments are done here
+  !!! Leaving this block empty will not be a problem
+  !!! Simply, nothing will be executed

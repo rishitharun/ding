@@ -1,0 +1,37 @@
+Sample Script #8 - Condition String and receive()
+
+ * In this script, we will take a look at how to receive packets using condition strings
+ * Condition strings are not normal strings
+ * They are written like normal strings, prefixed with a 'c'
+ * They are actually stream variables, represented in the form of strings
+ * Condition Strings are used to receive desired packets with specific fields and values
+ * This helps in simplifying the user-side complexity in receiving and processing packets
+
+NOTE: When this script is run, it will wait indefinitely for the packet specified in the condition string.
+      So try to run a script that sends the packet, as specified in the condition string.
+      ding /scripts/send_IP4.ding
+
+.decl:
+  stream cond_str
+
+.func:
+  !!! Block in which user defined functions are written
+  !!! User Defined Function feature is not yet developed/implemented
+  !!! Any Code inside this block will be ignored by the interpreter
+
+.flow:
+  cond_str = c"ETHER(SRC_MAC = 11~22~33~44~55~66, TYPE = 2048:2B, DEST_MAC = ff~dd~ee~cc~bb~aa) IP4(DEST_IP = 251.250.249.248, PROTOCOL = 17:1B)"
+
+  ! Condition Strings are specified as similar to normal strings, prefixed with a 'c'
+  ! Packets in Condition String are in bottom-to-top order of the OSI layers (datalink, network, transport)
+  ! Packet Names and Member Names must be specified as per ding naming convention
+  ! Member values can be raw values or already declared variable
+
+  print(cond_str)
+
+  print("Waiting for the packet to be received...")
+
+  print(receive(cond_str))
+
+  print("Packet Received...")
+

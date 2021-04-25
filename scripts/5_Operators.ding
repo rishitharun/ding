@@ -1,0 +1,22 @@
+Sample Script #5 - Operators
+
+ * In this script, we will take a look at the operators that are defined in ding
+ * As of now, only + , - , < , > are implemented in ding
+ * These operators take up only number operands
+
+.decl:
+
+.func:
+  !!! Block in which user defined functions are written
+  !!! User Defined Function feature is not yet developed/implemented
+  !!! Any Code inside this block will be ignored by the interpreter
+
+.flow:
+  print(5879:2B + 6987:2B)
+
+  print(7:1B < 9:1B)
+
+  print(6987:2B > 7777:2B)
+
+  print(7777:2B - 6897:2B)
+

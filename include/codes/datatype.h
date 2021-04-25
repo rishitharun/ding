@@ -1,0 +1,11 @@
+///* CODES FOR DATA TYPE *///
+
+#define IP4_TYPE_CODE 1
+#define IP6_TYPE_CODE 2
+#define MAC_TYPE_CODE 3
+#define BIT_TYPE_CODE 4
+#define NUMBER_TYPE_CODE 5
+#define PACKET_TYPE_CODE 6
+#define STRING_TYPE_CODE 7
+#define STREAM_TYPE_CODE 8
+

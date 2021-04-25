@@ -1,0 +1,47 @@
+Sample Script to send an ARP PACKET
+ * You can check the ARP Packet in Wireshark
+
+.decl:
+  packet ARP, ETH    ! ARP and Ether packets are declared
+
+.func:
+  ! Block in which user defined functions are written
+  ! User Defined Function feature is not yet developed/implemented
+  ! Any Code inside this block will be ignored by the interpreter
+
+.flow:
+  ARP = container("ARP")
+  ETH = container("ETHER")
+
+  ! Empty Containers for the packets are created
+  ! The packet structures have been defined
+
+  ARP.HW_TYPE = 1:2B
+  ARP.PROTO_TYPE = 2048:2B
+  ARP.HW_ADDRESS_LEN = 6:1B
+  ARP.PROTO_ADDRESS_LEN = 4:1B
+  ARP.OPERATION = 1:2B
+  ARP.SRC_MAC = 11~22~33~44~55~66
+  ARP.SRC_IP = 255.254.253.252
+  ARP.DEST_MAC = ff~dd~ee~cc~bb~aa
+  ARP.DEST_IP = 251.250.249.248
+
+  ! ARP Packet has been defined
+
+  ETH.SRC_MAC = 11~22~33~44~55~66
+  ETH.DEST_MAC = ff~dd~ee~cc~bb~aa
+  ETH.TYPE =  2054:2B
+
+  ! Ether Packet has been defined
+
+  ETH.PAYLOAD = ARP
+
+  ! ARP Packet is made as the Ether Packet's payload
+
+  interface("lo")
+ 
+  ! Loopback Interface has been chosen
+
+  send(ETH)   ! Sending the Packet
+
+  print("ARP Packet Sent Successfully")

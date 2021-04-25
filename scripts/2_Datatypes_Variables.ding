@@ -1,0 +1,30 @@
+Sample Script #2 - Datatypes and Variables
+
+ * In this script, we will declare variables of different datatypes
+ * We will assign values to the declared variables
+ * However, we will not declare any packets in this script
+
+.decl: 
+  ip4 my_ip4                       ! ip4 variable decalred
+  mac my_mac                       ! mac variable decalred
+  bit my_age                       ! bit variable declared
+  number my_year                   ! number variable declared
+  string my_city                   ! string variable declared
+  stream hex_stream, num_stream    ! stream variables declared
+
+.func:
+  !!! Block in which user defined functions are written
+  !!! User Defined Function feature is not yet developed/implemented
+  !!! Any Code inside this block will be ignored by the interpreter
+
+.flow:
+  my_ip4 = 192.168.4.103             ! IP4 value is assigned
+  my_mac = ab~cd~ef~12~34~56         ! MAC value is assigned
+  my_age = 22:5b                     ! A 5-bit value of 22 is assigned
+  my_year = 1998:2B                  ! A 2-byte value of 1998 is assigned
+  my_city = "Coimbatore is my city"  ! String is assigned
+  hex_stream = x1234567890abcdef     ! A Hex byte stream is assigned
+  num_stream = 12:255:9:200          ! A Decimal byte stream is assigned
+
+  ! All variables have been assigned values
+
